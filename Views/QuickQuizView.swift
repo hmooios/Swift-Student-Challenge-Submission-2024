@@ -36,7 +36,7 @@ struct QuickQuizView: View {
                         .foregroundColor(colorScheme == .light ? .black : .white)
                     Spacer()
 
-                    NavigationLink(destination: GERDQuestionnaireView()) {
+                    NavigationLink(destination: GerdQuestionnaireView()) {
                         HStack {
                             Text("I'm interested!")
                                 .font(.headline)

@@ -15,10 +15,7 @@ struct FoodView: View {
     
     var body: some View {
             GeometryReader { geometry in
-                    ZStack {
-                        (colorScheme == .light ? Color.black.opacity(isPresented ? 0.4 : 0) : Colors.menuColor.opacity(isPresented ? 0.4 : 0))
-                                    .background(Color.clear)
-                                    .edgesIgnoringSafeArea(.all)
+
                         VStack {
                             ScrollView(showsIndicators: false) {
                                 HStack {
@@ -114,7 +111,8 @@ struct FoodView: View {
                             .shadow(radius: 5)
                             .position(x: geometry.size.width / 2, y: geometry.size.height / 2)
                         }
-                    }
+                    .navigationBarHidden(true)
+
                 
             }
 

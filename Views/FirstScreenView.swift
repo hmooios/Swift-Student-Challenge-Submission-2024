@@ -32,7 +32,6 @@ struct FirstScreenView: View {
             Text("Start your journey to a healthier stomach today!")
                 .foregroundColor(Colors.lightBlack)
                 .font(.callout)
-                .padding(.top,5)
             
             Image("appLogo")
                 .resizable()

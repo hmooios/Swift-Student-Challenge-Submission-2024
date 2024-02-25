@@ -19,6 +19,10 @@ struct FoodsToAvoidDetailsView: View {
     
     var body: some View {
         ZStack{
+            (colorScheme == .light ? Color.black.opacity(spicyFoodPopUpVisible || alcoholPopUpVisible || caffeinePopUpVisible || mintPopUpVisible ? 0.4 : 0) : Colors.menuColor.opacity(spicyFoodPopUpVisible || alcoholPopUpVisible || caffeinePopUpVisible || mintPopUpVisible ? 0.4 : 0))
+                .background(Color.clear)
+                .edgesIgnoringSafeArea(.all)
+            
             ScrollView(showsIndicators: false) {
                 VStack{
                     FoodToAvoidTitlte
@@ -26,31 +30,36 @@ struct FoodsToAvoidDetailsView: View {
                 }
             }
             
-            Rectangle()
-                .fill(Color.black.opacity(spicyFoodPopUpVisible || alcoholPopUpVisible || caffeinePopUpVisible || mintPopUpVisible  ? 0.4 : 0))
-                .animation(.easeInOut(duration: 0.3), value: spicyFoodPopUpVisible || alcoholPopUpVisible || caffeinePopUpVisible || mintPopUpVisible)
-                .ignoresSafeArea(.all)
             
             
             if spicyFoodPopUpVisible{
                 FoodView(isPresented: $spicyFoodPopUpVisible, colorScheme: _colorScheme, foods: Food(emojiHeader: "🌶️", emoji1: "🥘", emoji2: "🍟", emoji3: "🥫", emoji4: "🌶️", nameHeader: "Spicy Food", name1: "Curries", name2: "Spicy snacks", name3: "Hot Sauces", name4: "Chili Pepper"),  title: "Common spicy food to avoid")
+                    .transition(.scale) // Example transition, adjust as needed
+                
             }else if alcoholPopUpVisible{
                 FoodView(isPresented: $alcoholPopUpVisible, colorScheme: _colorScheme, foods: Food(emojiHeader: "🍺", emoji1: "🍺", emoji2: "🍷", emoji3: "🥂", emoji4: "🍸",nameHeader: "Alcohol", name1: "Beer", name2: "Wine", name3: "Spirits", name4: "Cocktails"),  title: "Common alcohols to avoid")
+                    .transition(.scale) // Example transition, adjust as needed
+                
             }else if caffeinePopUpVisible {
                 FoodView(isPresented: $caffeinePopUpVisible
                          , colorScheme: _colorScheme, foods: Food(emojiHeader: "☕️", emoji1: "🥤", emoji2: "🧋", emoji3: "🥃", emoji4: "☕️",nameHeader: "Caffeine Drinks", name1: "Energy Drinks", name2: "Tea", name3: "Cola", name4: "Coffee"),  title: "Common Caffeine Drinks to avoid")
+                .transition(.scale) // Example transition, adjust as needed
+                
             }else if mintPopUpVisible{
                 FoodView(isPresented: $mintPopUpVisible, colorScheme: _colorScheme, foods: Food(emojiHeader: "🍵", emoji1: "🤮", emoji2: "🍵", emoji3: "🍵", emoji4: "🤢",nameHeader: "Mint", name1: "Peppermint", name2: "Spearmint", name3: "Menthol", name4: "Wild Mint"),  title: "Common mints to avoid")
+                    .transition(.scale) // Example transition, adjust as needed
+                
             }
             
         }.animation(.easeInOut(duration: 0.3), value: spicyFoodPopUpVisible || alcoholPopUpVisible || caffeinePopUpVisible || mintPopUpVisible)
+        
     }
     
     var FoodToAvoidTitlte: some View {
         VStack{
             Text("🍽️")
                 .font(.system(size: 60))
-                
+            
             Text("Click On Them To Discover Tips for Safe Consumption And Common Foods")
                 .font(.title3)
                 .padding(.vertical)

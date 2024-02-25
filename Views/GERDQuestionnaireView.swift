@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct GERDQuestionnaireView: View {
+struct GerdQuestionnaireView: View {
     @StateObject private var manager = QuestionManager(quiz: Quiz())
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     
