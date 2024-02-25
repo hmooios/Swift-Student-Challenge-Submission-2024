@@ -16,7 +16,7 @@ let package = Package(
         .iOSApplication(
             name: "GerdRelief",
             targets: ["AppModule"],
-            bundleIdentifier: "com.hmoo.GerdRelief",
+            bundleIdentifier: "com.hmoo.gerd-relief",
             teamIdentifier: "56A7RU2L35",
             displayVersion: "1.0",
             bundleVersion: "1",

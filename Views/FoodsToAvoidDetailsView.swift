@@ -50,8 +50,10 @@ struct FoodsToAvoidDetailsView: View {
         VStack{
             Text("🍽️")
                 .font(.system(size: 60))
+                
             Text("Click On Them To Discover Tips for Safe Consumption And Common Foods")
                 .font(.title3)
+                .padding(.vertical)
         }
     }
     
@@ -65,9 +67,8 @@ struct FoodsToAvoidDetailsView: View {
                     VStack{
                         ZStack {
                             Circle()
-                                .fill(Color(red: 252 / 255, green: 174 / 255, blue: 174 / 255))
+                                .fill(colorScheme == .light ? Colors.lightSpicyFood : Colors.darkSpicyFood)
                                 .frame(width: 120,height: 120)
-                                .opacity(0.3)
                             Text("🌶️")
                                 .font(.system(size: 60))
                             
@@ -85,9 +86,8 @@ struct FoodsToAvoidDetailsView: View {
                     VStack{
                         ZStack {
                             Circle()
-                                .fill(Color(red: 255 / 255.0, green: 228 / 255.0, blue: 201 / 255.0))
+                                .fill(colorScheme == .light ? Colors.lightBeer : Colors.darkBeer)
                                 .frame(width: 120,height: 120)
-                                .opacity(0.5)
                             Text("🍺")
                                 .font(.system(size: 66))
                             
@@ -110,9 +110,7 @@ struct FoodsToAvoidDetailsView: View {
                     VStack{
                         ZStack {
                             Circle()
-                                .fill(Color(red: 252 / 255, green: 174 / 255, blue: 174 / 255))
-                                .frame(width: 120,height: 120)
-                                .opacity(0.3)
+                                .fill(colorScheme == .light ? Colors.lightBlack : Colors.darkCoffee)                                .frame(width: 120,height: 120)
                             Text("☕️")
                                 .font(.system(size: 60))
                             
@@ -130,9 +128,7 @@ struct FoodsToAvoidDetailsView: View {
                     VStack{
                         ZStack {
                             Circle()
-                                .fill(Color(red: 255 / 255.0, green: 228 / 255.0, blue: 201 / 255.0))
-                                .frame(width: 120,height: 120)
-                                .opacity(0.5)
+                                .fill(colorScheme == .light ? Colors.lightMint : Colors.darkMint)                                .frame(width: 120,height: 120)
                             Text("🍵")
                                 .font(.system(size: 66))
                             
@@ -147,6 +143,7 @@ struct FoodsToAvoidDetailsView: View {
                 
             }
         }
+        .padding(.vertical,12)
     }
     
 }

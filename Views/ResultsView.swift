@@ -12,6 +12,7 @@ struct ResultsView: View {
     var manager: QuestionManager
     
     @Environment(\.colorScheme) var colorScheme
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
     
     var body: some View {
         let evaluation = evaluate(quiz: quiz)
@@ -29,14 +30,16 @@ struct ResultsView: View {
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 50, height: 50)
                     .foregroundColor(resultType.color)
-                    .padding(.bottom, 20)
-                
+
                 Text(evaluation)
+                    .foregroundColor(.black)
                     .padding()
                     .background(self.backgroundColor)
                     .cornerRadius(10)
-                    .foregroundColor(.black)
-                    .padding(.horizontal)
+                    .frame(width: .infinity,
+                           height: horizontalSizeClass == .compact ? geometry.size.height * 0.5 : geometry.size.height * 0.2
+                    )
+                    
                 
                 
                 Button(action: {
@@ -61,8 +64,9 @@ struct ResultsView: View {
                 }
                 .padding()
             }
-            .frame(width: geometry.size.width ,height: geometry.size.height * 0.8)
+            .frame(width: geometry.size.width ,height: geometry.size.height * 0.9)
             .position(x: geometry.size.width/2, y: geometry.size.height/2)
+            
         }
     }
     
